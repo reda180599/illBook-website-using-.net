@@ -1,0 +1,308 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="masterdoctor.master.cs" Inherits="masterdoctor" %>
+
+<%@ Register Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+    Namespace="System.Web.UI" TagPrefix="asp" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css"/>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="illass/css/nunito-font.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="illass/css/style.css"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>iLLBook</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: iPortfolio - v3.3.0
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+            float: left;
+        }
+        .style2
+        {
+            width: 137px;
+        }
+                 .fff{
+    display:flex;
+    overflow-y:auto;
+    }
+          .starempty
+        {
+            background-image: url(stars/starempty.png);
+            width: 50px;
+            height: 50px;
+        }
+        .starfilled
+        {
+            background-image: url(stars/starfilled.png);
+            width: 50px;
+            height: 50px;
+        }
+        .starwaiting
+        {
+            background-image: url(stars/starwaiting.png);
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body style="background-color:#006699;margin-top:0;margin-left:0;margin-right:0" >
+    <form id="form1" runat="server">
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none" ></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <%--<img src="assets/img/28.jpg" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="illlogin.aspx">Alex Smith</a></h1>--%>
+       <asp:DataList ID="DataList2" runat="server" DataSourceID="SqlDataSource1">
+           <ItemTemplate>
+               <asp:Image ID="Image2" runat="server" class="img-fluid rounded-circle" ImageUrl='<%# Eval("imgreg") %>' />
+              <asp:Label ID="Label1" runat="server" class="text-light" Text='<%# Eval("namereg") %>'></asp:Label>
+           </ItemTemplate>
+          </asp:DataList>
+        <div class="social-links mt-3 text-center">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="illhomedoc.aspx" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="addmedicalreport.aspx" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Add a medical report</span></a></li>
+          <li><a href="booking.aspx" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Booking</span></a></li>
+           <li><a href="addbooking.aspx" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Add Booking</span></a></li>
+          
+          <li><a href="remindme.aspx" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Remind Me</span></a></li>
+         <li><a href="yourrate.aspx" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>My Rate</span></a></li>
+          <li><a href="changepass.aspx" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Change Password</span></a></li>
+          <li><a href="illlogin.aspx" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Logout</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+  <br />
+  <script type="text/javascript" src="assets/js/main.js"></script>
+<%-- <div style="background-color:gray;width:100%;height:120;margin-top:0; text-align: center;">
+     <asp:Image ID="Image1" runat="server" Height="120px" 
+         ImageUrl="~/images/coverdoc.jpg" Width="100%" />
+  </div>--%>
+
+    <table align="center" class="style1" style="margin-top:0;" cellpadding="0" 
+        cellspacing="0" >
+        <tr bgcolor="White">
+            <td class="style2">
+                <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" 
+                    RepeatDirection="Horizontal">
+                    <ItemTemplate>
+                        <asp:Image ID="Image1" class="img-fluid rounded-circle" runat="server" Height="50px" 
+                            ImageUrl='<%# Eval("imgreg") %>' Width="50px" />
+
+                    </ItemTemplate>
+                </asp:DataList>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                    ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+                    
+                    SelectCommand="SELECT [imgreg], [namereg] FROM [regadvanced] WHERE ([emailreg] = @emailreg)">
+                    <SelectParameters>
+                        <asp:SessionParameter Name="emailreg" SessionField="emailreglogin" 
+                            Type="String" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+             
+                 
+            </td>
+            <td>
+               <asp:ImageButton ID="ImageButton1" runat="server" 
+                    class="img-fluid rounded-circle" ImageUrl="~/images/notiicon.jpg" Width="40" 
+                    Height="40" onclick="ImageButton1_Click1"  />
+                </td>
+            <td>
+                <asp:ImageButton ID="ImageButton2" runat="server"  Width="27px" Height="27px" 
+                    ImageUrl="~/images/chaticon2.png" onclick="ImageButton2_Click" />
+                </td>
+            <td>
+                <asp:ImageButton ID="ImageButton3" runat="server" 
+                    class="img-fluid rounded-circle" Width="50" Height="50" 
+                    ImageUrl="~/images/ratingicon.jpg" onclick="ImageButton3_Click" />
+                </td>
+                            <td>
+                <asp:ImageButton ID="ImageButton5" runat="server" 
+                    class="img-fluid rounded-circle" Width="35" Height="35" 
+                    ImageUrl="~/images/booking.png" onclick="ImageButton5_Click"/>
+                </td>
+                               <td>
+                <asp:ImageButton ID="ImageButton6" runat="server" 
+                    class="img-fluid rounded-circle" Width="35" Height="35" 
+                    ImageUrl="~/images/addpost.jpg" onclick="ImageButton6_Click"/>
+                </td>
+            <td>
+               <asp:Label ID="Label2" runat="server" Text="iLLBook" Font-Bold="True" 
+                    Font-Italic="True" Font-Size="XX-Large" ForeColor="Red"></asp:Label>
+               </td>
+            <td>
+               
+             </td>
+        </tr>
+        <tr >
+            <td>
+                &nbsp;</td>
+            <td>
+                <asp:DataList ID="DataList5" runat="server" DataSourceID="SqlDataSource4">
+                    <ItemTemplate>
+                        <asp:Label ID="Label3" runat="server"  Text='<%# Eval("count") %>' 
+                            ForeColor="Red"></asp:Label>
+                    </ItemTemplate>
+                </asp:DataList>
+                   
+                <asp:SqlDataSource ID="SqlDataSource4" runat="server" 
+                    ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+                    
+                    SelectCommand="SELECT DISTINCT [count] FROM [notireport] WHERE ([toemailnotireport] = @toemailnotireport)">
+                    <SelectParameters>
+                        <asp:SessionParameter Name="toemailnotireport" SessionField="emailreglogin" 
+                            Type="String" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+                   
+            </td>
+            <td>
+              <%--  <asp:Label ID="Label4" runat="server" ForeColor="Red" Text="1"></asp:Label>--%>
+                <asp:DataList ID="DataList4" runat="server" DataKeyField="id" 
+                    DataSourceID="SqlDataSource3">
+                    <ItemTemplate>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Eval("count") %>' 
+                            ForeColor="Red"></asp:Label>
+                    </ItemTemplate>
+                </asp:DataList>
+                <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
+                    ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+                    SelectCommand="SELECT * FROM [countchat] WHERE ([toemailchat] = @toemailchat)">
+                    <SelectParameters>
+                        <asp:SessionParameter Name="toemailchat" SessionField="emailreglogin" 
+                            Type="String" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+            </td>
+            <td>
+                <asp:Label ID="Label8" runat="server" Text="Label" Visible="False"></asp:Label>
+                </td>
+            <td>
+                <asp:Label ID="Label9" runat="server" Text="Label" Visible="False"></asp:Label>
+               </td>
+            <td>
+                <asp:Label ID="Label10" runat="server" Text="Label" Visible="False"></asp:Label>
+                <asp:Label ID="Label11" runat="server" Text="Label" Visible="False"></asp:Label>
+             </td>
+              <td>
+          
+             </td>
+        </tr>
+         <tr >
+         <td colspan="6" >
+         <br />
+            <asp:TextBox ID="TextBox2" runat="server" Width="350px"></asp:TextBox>
+                <asp:Button
+                    ID="Button2" runat="server" Text="Search" BackColor="Red" Font-Bold="True" 
+                    Font-Italic="True" ForeColor="White" />
+          
+           </td>
+        </tr >
+        <tr >
+            <td colspan="6" >
+            <br />
+                <asp:DataList ID="DataList3" runat="server" DataSourceID="SqlDataSource2" 
+                    RepeatDirection="Horizontal" onitemcommand="DataList3_ItemCommand">
+                    <ItemTemplate>
+                      
+                        <asp:ImageButton ID="ImageButton4" runat="server" 
+                            class="img-fluid rounded-circle" ImageUrl='<%# Eval("imgreg") %>' Width="100" 
+                            Height="100" />
+                        <br />
+                        <asp:Label ID="Label5" runat="server" Text='<%# Eval("namereg") %>' Visible="False"></asp:Label>
+                        <asp:Label ID="Label6" runat="server" Text='<%# Eval("spy") %>' Visible="False"></asp:Label>
+                        <asp:Label ID="Label7" runat="server" Text='<%# Eval("emailreg") %>' Visible="False"></asp:Label>
+                    </ItemTemplate>
+                </asp:DataList>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+                    ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+                    
+                    
+                    
+                    
+                    
+                    SelectCommand="SELECT [imgreg],[namereg],[spy],[emailreg] FROM [rat] WHERE (([spy] = @spy) AND ([rat] = @rat))">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="DropDownList1" Name="spy" 
+                            PropertyName="SelectedValue" Type="String" />
+                        <asp:Parameter DefaultValue="5" Name="rat" Type="Double" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+               
+                </td>
+           
+        </tr>
+         
+        <tr >
+         <td colspan="6" >
+         <br />
+             <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" 
+                 Width="200px">
+                 <asp:ListItem>Surgary</asp:ListItem>
+                 <asp:ListItem>eyes</asp:ListItem>
+             </asp:DropDownList>
+        
+           </td>
+        </tr >
+    </table>
+      
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+  
+    </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
